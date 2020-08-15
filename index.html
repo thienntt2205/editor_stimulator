@@ -25,26 +25,38 @@
   <div class="row">
     <div class="column" style="background-color:#FFFFFF;">
       <h2>InputData</h2>
-      <textarea id="inputdata" rows="40" cols="100" onkeyup="run()"></textarea>
+      <textarea id="inputdata" rows="40" cols="100" onkeyup="delay(function (e) {
+        run_stimulator();
+      }, 500);;"></textarea>
       <p id="autogenerate"></p>
-       
+
 
     </div>
     <div class="column" style="background-color:#FFFFFF;">
       <h2>Render</h2>
-      <input type="submit" value="Run" onclick="run()"></input>
+      <input type="submit" value="Run" onclick="run_stimulator()"></input>
       <hr />
       <div id="render" />
     </div>
   </div>
   <script>
-		var inputdata = document.getElementById("inputdata");
-		var render = document.getElementById("render");
-		function run() {
-			console.log("text: ", inputdata.value);
-			render.innerHTML = inputdata.value;
-		}
-	</script>
+    var inputdata = document.getElementById("inputdata");
+    var render = document.getElementById("render");
+    function run_stimulator() {
+      console.log("text: ", inputdata.value);
+      render.innerHTML = inputdata.value;
+    }
+    function delay(ms) {
+      var timer = 0;
+      var args = arguments;
+      return function () {
+        clearTimeout(timer);
+        timer = setTimeout(function () {
+          callback.apply(inputdata, args);
+        }, ms || 0);
+      };
+    }
+  </script>
 </body>
 
 </html>
