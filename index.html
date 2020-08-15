@@ -21,14 +21,12 @@
 </head>
 
 <body>
-  <h1>HTML editor tool</h1>
+  <h1>HTML Editor Tool</h1>
   <div class="row">
     <div class="column" style="background-color:#FFFFFF;">
       <h2>InputData</h2>
-      <textarea id="inputdata" rows="40" cols="100" onkeyup="delay(function (e) {run_stimulator()}, 500)"></textarea>
+      <textarea id="inputdata" rows="40" cols="100"></textarea>
       <p id="autogenerate"></p>
-
-
     </div>
     <div class="column" style="background-color:#FFFFFF;">
       <h2>Render</h2>
@@ -38,22 +36,12 @@
     </div>
   </div>
   <script>
-    var inputdata = document.getElementById("inputdata");
-    var render = document.getElementById("render");
-    function run_stimulator() {
-      console.log("text: ", inputdata.value);
-      render.innerHTML = inputdata.value;
+    function delay() {
+      var inputdata = document.getElementById("inputdata").value;
+  	  document.getElementById("render").innerHTML = inputdata;
     }
-    function delay(callback, ms) {
-      var timer = 0;
-      var args = arguments;
-      return function () {
-        clearTimeout(timer);
-        timer = setTimeout(function () {
-          callback.apply(inputdata, args);
-        }, ms || 0);
-      };
-    }
+    
+    document.getElementById('inputdata').addEventListener('keyup', delay, false);
   </script>
 </body>
 
