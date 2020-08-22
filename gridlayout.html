@@ -1,20 +1,28 @@
-<!DOCTYPE html>
 <html>
 
 <head>
-    <link href="gridlayout_css.css" rel="stylesheet">
+    <title>Example 16</title>
+    <meta charset="utf-8">
+    <style>
+
+    </style>
 </head>
+<link href="gridlayout_css.css" rel="stylesheet">
 
 <body>
-    <h1>The flex-grow Property</h1>
 
-    <p>Make the third flex item grow eight times faster than the other flex items:</p>
-
-    <div class="flex-container">
-        <div style="flex-grow: 2">1</div>
-        <div style="flex-grow: 8">2</div>
-
+    <div class="wrapper">
+        <div class="box header">Header</div>
+        <div class="box sidebar">Sidebar</div>
+        <div class="box content">Content
+            <br> The four arrows are inline images inside the content area.
+            <img src="arrow-top-left.png" alt="top left" class="topleft">
+            <img src="arrow-top-right.png" alt="top right" class="topright">
+            <img src="arrow-bottom-left.png" alt="bottom left" class="bottomleft">
+            <img src="arrow-bottom-right.png" alt="bottom right" class="bottomright"></div>
+        <div class="box footer">Footer</div>
     </div>
+
 
 </body>
 
